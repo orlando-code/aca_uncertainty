@@ -1,2 +1,7 @@
+# caches
 __pycache__
 .DS_Store
+
+# private
+data/**
+!data/.gitkeep
