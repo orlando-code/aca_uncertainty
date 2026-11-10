@@ -1,0 +1,90 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aca_uncertainty"
+description = "Exploring spatial uncertainty of the Allen Coral Atlas"
+version = "0.0.1"
+authors = [
+    { name="Orlando Timmerman", email="rt582@cam.ac.uk" }
+]
+
+maintainers = [
+    { name="Orlando Timmerman", email="rt582@cam.ac.uk" }
+]
+
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+
+requires-python = ">=3.11"
+# Keep empty for editable installs into conda envs (e.g. `gee`) that already
+# provide earthengine-api and Jupyter. Use `pip install -e ".[dev,full]"` for pins + tests.
+dependencies = []
+
+keywords = [
+    "allen-coral-atlas",
+    "earth-engine",
+    "uncertainty",
+    "reef",
+    "benthic",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: GIS",
+]
+
+[project.urls]
+Repository = "https://github.com/orlando-code/aca_uncertainty"
+Documentation = "https://github.com/orlando-code/aca_uncertainty#readme"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aca_uncertainty"]
+
+[project.optional-dependencies]
+full = [
+    # Core data science
+    "pandas == 2.3.3",
+    "numpy == 2.3.4",
+    "scipy == 1.16.2",
+    "earthengine-api == 1.7.51",
+    # Visualization
+    "matplotlib == 3.10.7",
+    "seaborn == 0.13.2",
+    "cairosvg == 2.9.1",
+    "cartopy == 0.25.0",
+    "Pillow == 11.3.0",
+    "ipykernel >= 7.0.0",
+    "ipywidgets >= 8.0.0",
+    "jupyter >= 1.0.0",
+    # Geospatial
+    "geopandas == 1.1.1",
+    "geemap >= 0.35.0",
+    "shapely == 2.1.2",
+    # Statistics and machine learning
+    "statsmodels == 0.14.5",
+    "scikit-learn == 1.7.2",
+    # File handling
+    "openpyxl == 3.1.5",
+    "PyYAML == 6.0.3",
+    # Utilities
+    "tqdm == 4.67.1",
+    "requests == 2.32.5",
+    "googlemaps == 4.10.0",
+    # Specialized
+    "cbsyst == 0.4.10",
+]
+dev = [
+    "pytest >= 7.4.0",
+    "black >= 23.0.0",
+    "ruff >= 0.1.0",
+    "mypy >= 1.5.0",
+    "jupyter >= 1.0.0",
+    "ipykernel == 7.0.1",
+]
+
