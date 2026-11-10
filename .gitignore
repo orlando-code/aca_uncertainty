@@ -1,6 +1,9 @@
 # caches
 __pycache__
 .DS_Store
+.mplcache/
+.pytest_cache
+.mplcache
 
 # private
 data/**
@@ -8,3 +11,6 @@ data/**
 
 figures/
 docs/
+
+# working files (not ready/necessary)
+citations.ipynb
