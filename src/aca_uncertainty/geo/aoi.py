@@ -11,7 +11,7 @@ from shapely.geometry import box
 from shapely.geometry.base import BaseGeometry
 
 # custom
-from aca_uncertainty import config, s2
+from aca_uncertainty.utils import config
 
 ### --- GEOMETRY HELPERS
 
@@ -128,7 +128,7 @@ def sample_class_pixels(
     tile_scale: int = 4,
 ) -> dict[str, list[float]]:
     """Uniform samples from imagery inside the class footprint within AOI."""
-    bands = bands or s2.S2_BANDS
+    bands = bands or config.S2_BANDS
     region = class_geom_in_aoi(gdf, class_name, aoi_shapely)
     fc_samples = image.select(bands).sample(
         region=region,
