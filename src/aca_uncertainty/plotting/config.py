@@ -1,16 +1,18 @@
 """Plot styling, export paths, and matplotlib defaults."""
 
+### --- IMPORTS
 from __future__ import annotations
 
+# general
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Literal
 
+import matplotlib.pyplot as plt
 from matplotlib.axes import Axes
 from matplotlib.figure import Figure
 
-import matplotlib.pyplot as plt
-
+# custom
 from aca_uncertainty.utils import config
 
 ### --- COLOURS (aligned with ACA v2.0)
@@ -169,7 +171,9 @@ class PlotConfig:
         lw = elinewidth if elinewidth is not None else self.bar_error_elinewidth
         return {"elinewidth": lw, "ecolor": self.bar_edgecolor}
 
-    def finish_figure(self, fig: Figure, *, tight: bool | None = None, **kwargs: Any) -> None:
+    def finish_figure(
+        self, fig: Figure, *, tight: bool | None = None, **kwargs: Any
+    ) -> None:
         if tight if tight is not None else self.tight_layout:
             fig.tight_layout(**kwargs)
 
